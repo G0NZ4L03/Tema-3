@@ -1,0 +1,13 @@
+#boton {
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    padding: 15px 30px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar */
+}
+
+#boton:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumentar tamaño ligeramente */
+}

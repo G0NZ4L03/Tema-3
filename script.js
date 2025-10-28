@@ -1,33 +1,24 @@
-/* 
-    Utilizaremos el objeto Date para cuaquier trabajo con fechas;
-    mostrar fecha y hora actual, calcular días que faltan para un evento,
-    mostrar reloj,...
-
-    Creamos el objeto con el operador new, utilizando la siguiente sintaxis
-
-    let fecha = new Date(year, month, [date], [hours], [minutes], [seconds], [ms])
-
+/*
+Enunciado.
+1.  Crea una página con un botón que al hacer click abre una ventana de tamaño 600 X 400, en la ventana se escribirá la frase 
+"Hoy es dia/mes/año y faltan XX días para fin de año", siendo día, mes, y año , los actuales obtenidos a partir del objeto Date.
 */
 
+//Capturo el evento del click en el boton para que ejecute mi funcion
+let boton = document.getElementById("boton").addEventListener("click", abrirVentana);
+
+function abrirVentana() {
+
+    //Lo primero que hago en la funcion es abrir la ventana
+    let ventana = window.open("", "", "width=600,height=400");
+
+    //Ahora obtengo los datos de la fecha actual y de año nuevo
     let fecha = new Date();
-    console.log('Año: '+fecha.getFullYear());//->Año: 2020
-    console.log('Mes: '+parseInt(fecha.getMonth()+1));//->Mes: 5
-    console.log('Dia: ' +fecha.getDate());//->Dia: 10
-    console.log('Horas: '+fecha.getHours());//->Horas: 9
+    let fechaFinAno = new Date(2026, 0, 1);
+    let diasRestantes = fechaFinAno.getTime() - fecha.getTime(); //Calculo la diferencia en milisegundos
+    diasRestantes = Math.ceil(diasRestantes / 1000 / 60 / 60 / 24); //Convierto la diferencia en dias
 
-    //modificamos con métodos set
-    fecha.setHours(4);
-    console.log('Hora modificada: '+fecha.getHours());//->Hora modificada: 4
-
-
-    //Internamente la variable almacena los milisegundos que han pasado
-    //desde 1970.
-    console.log(fecha.getTime());
-
-    //Si no pasamos parametros capturamos la hora actual.
-    let fechaActual = new Date();
-    console.log(fechaActual.toString())
-
-    //Disponemos de métodos que hacen referencia a la hora UTC ya la local.
-    console.log(fechaActual.getUTCHours());
-    console.log(fechaActual.getHours());
+    //Formulo y escribo la frase en la ventana
+    let frase = "Hoy es " +fecha.getDate()  + "/" + (fecha.getMonth() + 1) + "/" + fecha.getFullYear() + " y faltan " + diasRestantes + " días para fin de año.";
+    ventana.document.write(frase);
+}
