@@ -1,0 +1,19 @@
+body {
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#texto {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+#numero {
+    font-size: 1.25rem;
+    max-width: 300px;
+    margin: auto;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
